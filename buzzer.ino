@@ -1,13 +1,14 @@
 /**
  * This lab repo contains code to use a buzzer with a DHT11 sensor and LCD.
- * First Last - Month Year
+ * Kaplan Tonelli - November 2026
  */
 
 #include <DHT.h>
 #include <LiquidCrystal.h>
 
 const int dhtPin = 2;
-// TODO: define the buzzer pin
+// define the buzzer pin
+const int buzzerPin = 3;
 const int rs = 7;
 const int en = 8;
 const int d4 = 9;
@@ -37,7 +38,8 @@ void setup() {
   // initialize the 16x2 LCD
   lcd.begin(16, 2);
 
-  // TODO: set the buzzer pin as an ouput pin
+  // set the buzzer pin as an ouput pin
+  pinMode(buzzerPin, OUTPUT);
 
 }
 
@@ -58,12 +60,16 @@ void loop() {
     lcd.print("F");
 
     // position cursor at start of row 2
+    lcd.setCursor(0,1);
     // format - Humidity: xx.x%
     lcd.print("humidity: ");
     lcd.print(humidity, 1);
     lcd.print("%");
 
-    // TODO: Play a short tone after the lcd updates
+    // Play a short tone after the lcd updates
+  digitalWrite(buzzerPin, HIGH);
+  delay(500);
+  digitalWrite(buzzerPin, LOW);
 
     // wait 5 seconds before updating
     delay(pause);

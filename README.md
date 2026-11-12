@@ -19,10 +19,10 @@ The following table breaks down the major differences.
 
 ### Predict
 1. What will happen if you connect an active buzzer to a digital output set to HIGH?
-    > your answer
+    > beep once
 
 2. What do you predict will happen if you use the same program with a passive buzzer?
-    > your answer
+    > beep continuously
 
 
 ## 2. Build the circuit
@@ -77,15 +77,24 @@ Change the program to create each of the following patterns after the LCD update
 
 ### Reflect
 1. Which part of the code controls how long the buzzer sounds?
-    > your answer
+    > delay
 
 2. What code would you use to create three short beeps?
     ```c++
+    digitalWrite(buzzerPin, HIGH);
+    delay(200);
+    digitalWrite(buzzerPin, LOW);
+    digitalWrite(buzzerPin, HIGH);
+    delay(200);
+    digitalWrite(buzzerPin, LOW);
+    digitalWrite(buzzerPin, HIGH);
+    delay(200);
+    digitalWrite(buzzerPin, LOW);
 
     ```
 
 3. Can you change the pitch of the active buzzer using `digitalWrite()`?
-    > your answer
+    > yes
 
 ## 4. Try the passive buzzer
 Disconnect the power and replace the active buzzer with the passive buzzer. Keep the same pin connections.
@@ -94,7 +103,7 @@ Disconnect the power and replace the active buzzer with the passive buzzer. Keep
 The passive buzzer requires a rapidly changing electrical signal to produce a tone. Use the Arduino `tone()` function.
 
 ```c++
-tone(buzzerPin, 425);
+tone(buzzerPin, 440);
 delay(200);
 noTone(buzzerPin);
 ```
@@ -115,10 +124,10 @@ Change the frequency argument and observe what happens. Record your observations
 
 ### Reflect
 1. How are frequency and pitch related? As frequency increases, pitch _____.
-    > your answer
+    > increases
 
 2. Why would a designer choose a passive buzzer for an alarm system?
-    > your answer
+    > Because you can change the thing repeatedly
 
 
 # 5. Set an alert
@@ -134,11 +143,11 @@ void tooHotAlert() {
 
 # 6. Wrap up
 1. What is the major difference between active and passive buzzers?
-    > your answer
+    > passive is more of  musical tone while active is more of a beep
 
 2. What is an advantage of a passive buzzer when creating an alert system?
-    > your answer
+    > Louder longer, and changeable
 
 3. Why is it useful to separate code that reads sensors from the code that controls output devices?
-    > your answers
+    > sensors give the output devices what to output
 
